@@ -40,16 +40,21 @@ var create = function(){
 var update = function(){
   if(Nakama.keyboard.isDown(Phaser.Keyboard.UP)){
     Nakama.player.position.y -= 10;
+    if(Nakama.player.y <0){Nakama.player.y=0;}
   }
   if(Nakama.keyboard.isDown(Phaser.Keyboard.DOWN)){
     Nakama.player.position.y += 10;
+    if(Nakama.player.y >880){Nakama.player.y=880;}
   }
   if(Nakama.keyboard.isDown(Phaser.Keyboard.LEFT)){
     Nakama.player.position.x -= 10;
+    if(Nakama.player.x <110){Nakama.player.x=110;}
   }
   if(Nakama.keyboard.isDown(Phaser.Keyboard.RIGHT)){
     Nakama.player.position.x += 10;
+    if(Nakama.player.x >450){Nakama.player.x=450;}
   }
+  console.log(Nakama.player.x, Nakama.player.y);
 
 }
 
