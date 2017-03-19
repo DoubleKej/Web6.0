@@ -8,11 +8,11 @@ class HomingBulletController {
     this.sprite.body.velocity = direction.setMagnitude(HomingBulletController.BULLET_SPEED);
   }
   update(){
-    if(this.focus && this.focus.alive){
-          this.sprite.angle = 180*Math.atan((this.focus.x-this.sprite.x)/-(this.focus.y-this.sprite.y))/Math.PI;
-          var dir = new Phaser.Point (this.focus.x-this.sprite.x,this.focus.y-this.sprite.y);
-          this.sprite.body.velocity = dir.setMagnitude(BulletController.BULLET_SPEED);
-        }
+    // if(this.focus && this.focus.alive){
+    //       this.sprite.angle = 180*Math.atan((this.focus.x-this.sprite.x)/-(this.focus.y-this.sprite.y))/Math.PI;
+    //       var dir = new Phaser.Point (this.focus.x-this.sprite.x,this.focus.y-this.sprite.y);
+    //       this.sprite.body.velocity = dir.setMagnitude(BulletController.BULLET_SPEED);
+    //     }
   }
 }
 HomingBulletController.BULLET_SPEED = 1000;
