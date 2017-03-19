@@ -8,11 +8,11 @@ Nakama.configs = {
   MAX_HEIGHT: 960,
   PLAYER1_POS : {
     x:200,
-    y:200
+    y:800
   },
   PLAYER2_POS : {
     x:400,
-    y:200
+    y:800
   },
   ENEMY_POS : {
     x:100,
@@ -57,6 +57,7 @@ var create = function(){
 
   Nakama.game.add.sprite(0, 0, 'background')
   Nakama.bulletGroup = Nakama.game.add.physicsGroup();
+  Nakama.hommingBulletGroup = Nakama.game.add.physicsGroup();
   Nakama.enemyGroup = Nakama.game.add.physicsGroup();
   Nakama.playerGroup = Nakama.game.add.physicsGroup();
   Nakama.players = [];
