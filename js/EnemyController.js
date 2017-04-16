@@ -15,7 +15,7 @@ class EnemyController {
     if(this.sprite.x >450){
       this.sprite.body.velocity.x = -EnemyController.ENEMY_SPEED;
     }
-    this.fire();
+    // this.fire();
   }
   fire(){
     this.createBullet(new Phaser.Point(0, 1));

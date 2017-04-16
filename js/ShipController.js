@@ -47,13 +47,12 @@ class ShipController {
     this.createBullet(new Phaser.Point(-1, -5));
     this.createBullet(new Phaser.Point(1, -2));
     this.createBullet(new Phaser.Point(-1, -2));
-    
+
   }
   createBullet(direction){
-    new BulletController(
+    new BulletType2Controller(
       this.sprite.position,
-      direction,
-      "BulletType1.png"
+      direction
     )
   }
 }

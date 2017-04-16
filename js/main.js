@@ -62,12 +62,11 @@ var create = function(){
   Nakama.playerGroup = Nakama.game.add.physicsGroup();
   Nakama.players = [];
   Nakama.enemies = [];
-
+  Nakama.bullets = [];
   Nakama.players.push(
-    new ShipController(
+    new ShipType2Controller(
       Nakama.configs.PLAYER1_POS.x,
       Nakama.configs.PLAYER1_POS.y,
-      'Spaceship1-Player.png',
       {
         up  : Phaser.Keyboard.UP,
         down: Phaser.Keyboard.DOWN,
@@ -105,6 +104,20 @@ var create = function(){
       }
     )
   );
+
+  setInterval(function(){
+   Nakama.enemies.push(
+     new EnemyController(
+       300,
+       100,
+       "EnemyType1.png",
+       {
+         speed : 500,
+         health: 1500
+       }
+     )
+   );
+ }, 3000);
 }
 
 // update game state each frame
@@ -116,6 +129,12 @@ var update = function(){
   Nakama.enemies.forEach(function(enemy){
     enemy.update();
   });
+  Nakama.bullets.forEach(function(bullet){
+    if (bullet.update && typeof bullet.update == "function") {
+      bullet.update();
+
+    }
+  });
 
   Nakama.game.physics.arcade.overlap(
     Nakama.bulletGroup,
@@ -125,7 +144,7 @@ var update = function(){
 
 }
 var onBulletHitEnemy = function(bulletSprite, enemySprite){
-  enemySprite.damage(1);
+  enemySprite.damage(bulletSprite.damage);
   bulletSprite.kill();
 }
 
